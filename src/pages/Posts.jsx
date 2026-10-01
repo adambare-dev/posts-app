@@ -1,0 +1,90 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+
+function Posts() {
+  const [samplePosts, setSamplePosts] = useState([
+    {
+      id: 1,
+      header: "🚀 Getting Started with React in 2026",
+      content:
+        "React continues to evolve with powerful features like Server Components and automatic state optimizations. Building small apps is the best way to master component isolation, state management, and props structure.",
+      addedAt: new Date().toLocaleTimeString(),
+      featuresYouCanAdd: [
+        "Like Button",
+        "Comment Section",
+        "Read Time Calculator",
+        "Share Button",
+      ],
+    },
+    {
+      id: 2,
+      header: "🎨 Styling Your UI: Tailwind vs CSS Modules",
+      content:
+        "Choosing a styling strategy impacts how quickly you can scale. Tailwind CSS gives you speed through utility classes directly in your JSX, while CSS Modules ensure local scoping without class name collisions.",
+      addedAt: new Date().toLocaleTimeString(),
+
+      featuresYouCanAdd: [
+        "Dark Mode Toggle",
+        "Copy Code Snippet Feature",
+        "Bookmark/Save Post",
+        "Tag Filters",
+      ],
+    },
+    {
+      id: 3,
+      header: "📈 Simple Rules for Better State Management",
+      content:
+        "Keep your state as local as possible. Only lift state up to a parent component when multiple sibling components absolutely need access to the same data, preventing unnecessary app-wide re-renders.",
+      addedAt: new Date().toLocaleTimeString(),
+      featuresYouCanAdd: [
+        "Upvote/Downvote Counter",
+        "Edit Post Inline Mode",
+        "Delete Button",
+        "Draft Autosave Status",
+      ],
+    },
+  ]);
+  const [input, setInput] = useState("");
+  const [add, setAdd] = useState("");
+  const filteredPost = samplePosts.filter((p) =>
+    p.header.toLowerCase().includes(input.toLowerCase()),
+  );
+
+  return (
+    <div className="p-4 text-center">
+      <h1 className="text-4xl font-bold tracking-tighter mb-6">Posts</h1>
+      <input
+        type="text"
+        placeholder="search post"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        className="border rounded-lg py-1 px-2 my-4"
+      />
+
+      <ul className="flex flex-col gap-3 p-6 md:flex-row">
+        {filteredPost.length > 0 ? (
+          filteredPost.map((post) => (
+            <div
+              key={post.id}
+              className="bg-slate-800 p-6 rounded-lg flex flex-col justify-center border border-slate-700"
+            >
+              <h3 className="text-left font-semibold">{post.header}</h3>
+              <small className="text-left">Added at: {post.addedAt}</small>
+
+              <Link
+                to={`../postsDetails/${post.id}`}
+                className="font-bold text-blue-400 text-left mt-6"
+              >
+                Veiw post details
+              </Link>
+            </div>
+          ))
+        ) : (
+          <p>No post found</p>
+        )}
+      </ul>
+    </div>
+  );
+}
+
+export default Posts;
