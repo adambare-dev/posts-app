@@ -6,8 +6,8 @@ function Layout() {
   return (
     <>
       <div className="flex flex-col justify-between items-center min-h-screen w-full px-4">
-        <nav class="bg-teal-700 sticky top-0 z-1000 backdrop-blur-md flex items-center p-4 justify-between min-w-screen">
-          <h3 className="font-bold text-2xl">&lt;/&gt;</h3>
+        <nav class="bg-teal-700 sticky top-0 z-1000 backdrop-blur-md flex items-center p-4 justify-between min-w-screen px-5">
+          <h3 className="font-bold text-2xl">Posts</h3>
           <button
             className="md:hidden text-2xl font-semibold text-white cursor-pointer"
             onClick={() => setIsOpen((prev) => !prev)}

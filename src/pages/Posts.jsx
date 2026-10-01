@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Posts() {
   const [samplePosts, setSamplePosts] = useState([
@@ -44,6 +45,7 @@ function Posts() {
       ],
     },
   ]);
+  const navigate = useNavigate();
   const [input, setInput] = useState("");
   const [add, setAdd] = useState("");
   const filteredPost = samplePosts.filter((p) =>
@@ -85,6 +87,13 @@ function Posts() {
           <p>No post found</p>
         )}
       </ul>
+      <button
+        onClick={() => navigate(-1)}
+        className="py-4 px-8 md:py-3 md:px-6 border border-slate-800 rounded-lg mb-5 bg-slate-800/50 text-white font-bold hover:translate-x-2 duration-200 cursor-pointer mt-9"
+        title="go back to posts page"
+      >
+        &larr; Back To Home
+      </button>
     </div>
   );
 }
