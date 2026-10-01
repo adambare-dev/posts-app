@@ -102,7 +102,9 @@ function PostDetails() {
             </button>
           </article>
 
-          <p className="leading-relaxed">{seletctedPost.content}</p>
+          <p className="text-lg leading-relaxed md:text-base ">
+            {seletctedPost.content}
+          </p>
 
           <div className="flex gap-4 items-center mt-6 justify-between border-t border-slate-700 pt-6">
             <section className="flex gap-3 items-center">

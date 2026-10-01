@@ -1,24 +1,59 @@
 import { Link, Outlet } from "react-router-dom";
 import Footer from "./Footer";
+import { useState } from "react";
 function Layout() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div className="flex flex-col justify-between items-center min-h-screen w-full border">
-        <nav class="bg-slate-950/50 sticky top-0 z-1000 backdrop-blur-md flex flex-col gap-4 items-center p-4 md:flex-row justify-between min-w-screen">
+      <div className="flex flex-col justify-between items-center min-h-screen w-full px-4">
+        <nav class="bg-teal-700 sticky top-0 z-1000 backdrop-blur-md flex items-center p-4 justify-between min-w-screen">
           <h3 className="font-bold text-2xl">&lt;/&gt;</h3>
-          <button></button>
-          <ul className="flex gap-2">
+          <button
+            className="md:hidden text-2xl font-semibold text-white cursor-pointer"
+            onClick={() => setIsOpen((prev) => !prev)}
+          >
+            {isOpen ? <small>&#10005;</small> : <small>&#9776;</small>}
+          </button>
+          <ul className="hidden md:flex gap-3">
             <li>
-              <Link to={"/"}>Home</Link>
+              <Link to={"/"} className="text-white">
+                Home
+              </Link>
             </li>
             <li>
-              <Link to={"about"}>About</Link>
+              <Link to={"about"} className="text-white">
+                About
+              </Link>
             </li>
             <li>
-              <Link to={"posts"}>Posts</Link>
+              <Link to={"posts"} className="text-white">
+                Posts
+              </Link>
             </li>
           </ul>
         </nav>
+        <nav>
+          {isOpen && (
+            <ul className="md:hidden flex flex-col gap-3 p-2">
+              <li>
+                <Link to={"/"} className="font-semibold text-blue-400">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to={"about"} className="font-semibold text-blue-400">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link to={"posts"} className="font-semibold text-blue-400">
+                  Posts
+                </Link>
+              </li>
+            </ul>
+          )}
+        </nav>
+
         <main>
           <Outlet />
         </main>

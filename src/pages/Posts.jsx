@@ -58,18 +58,20 @@ function Posts() {
         placeholder="search post"
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        className="border rounded-lg py-1 px-2 my-4"
+        className="border rounded-lg py-1 px-2 my-4 w-full md:w-1/2"
       />
 
-      <ul className="flex flex-col gap-3 p-6 md:flex-row">
+      <ul className="flex flex-col gap-5  md:flex-row">
         {filteredPost.length > 0 ? (
           filteredPost.map((post) => (
             <div
               key={post.id}
-              className="bg-slate-800 p-6 rounded-lg flex flex-col justify-center border border-slate-700"
+              className=" bg-slate-900 p-6 rounded-lg flex flex-col justify-center border border-slate-700"
             >
               <h3 className="text-left font-semibold">{post.header}</h3>
-              <small className="text-left">Added at: {post.addedAt}</small>
+              <small className="text-left text-base md:text-sm">
+                Added at: {post.addedAt}
+              </small>
 
               <Link
                 to={`../postsDetails/${post.id}`}
