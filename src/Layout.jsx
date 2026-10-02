@@ -6,13 +6,17 @@ function Layout() {
   return (
     <>
       <div className="flex flex-col justify-between items-center min-h-screen w-full px-4">
-        <nav class="bg-teal-700 sticky top-0 z-1000 backdrop-blur-md flex items-center p-4 justify-between min-w-screen px-5">
-          <h3 className="font-bold text-2xl">Posts</h3>
+        <nav class="bg-teal-700 sticky top-0 z-1000 backdrop-blur-md flex items-center p-4 justify-between min-w-screen px-5 ">
+          <h3 className="font-bold text-2xl text-white">Posts</h3>
           <button
             className="md:hidden text-2xl font-semibold text-white cursor-pointer"
             onClick={() => setIsOpen((prev) => !prev)}
           >
-            {isOpen ? <small>&#10005;</small> : <small>&#9776;</small>}
+            {isOpen ? (
+              <small className="text-xl">&#10005;</small>
+            ) : (
+              <small className="text-xl">&#9776;</small>
+            )}
           </button>
           <ul className="hidden md:flex gap-3">
             <li>
@@ -34,19 +38,28 @@ function Layout() {
         </nav>
         <nav>
           {isOpen && (
-            <ul className="md:hidden flex flex-col gap-3 p-2">
-              <li>
-                <Link to={"/"} className="font-semibold text-blue-400">
+            <ul className="md:hidden flex flex-col gap-3 p-2 border-b border-slate-700 min-w-screen text-center">
+              <li className="">
+                <Link
+                  to={"/"}
+                  className="font-semibold text-white text-2xl hover:text-slate-300 transition-all duration-200s"
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link to={"about"} className="font-semibold text-blue-400">
+                <Link
+                  to={"about"}
+                  className="font-semibold text-white text-2xl  hover:text-slate-300 transition-all duration-200s"
+                >
                   About
                 </Link>
               </li>
               <li>
-                <Link to={"posts"} className="font-semibold text-blue-400">
+                <Link
+                  to={"posts"}
+                  className="font-semibold text-white text-2xl  hover:text-slate-300 transition-all duration-200s"
+                >
                   Posts
                 </Link>
               </li>
