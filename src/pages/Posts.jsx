@@ -56,15 +56,15 @@ function Posts() {
     <div className="p-4 text-center">
       <h1 className="text-4xl font-bold tracking-tighter mb-6">Posts</h1>
 
-      <section className="relative border rounded-lg py-4 px-3 my-4 w-full md:w-1/2 flex">
+      <section className="relative border rounded-xl py-4 px-3 my-4 w-full md:w-1/2 flex">
         <input
           type="text"
           placeholder="search post"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className=" text-xl md:text-xl grow ml-10 outline-none "
+          className=" text-xl md:text-lg grow ml-10 outline-none "
         />
-        <FaSearch className="absolute top-5 " size={22} />
+        <FaSearch className="absolute top-5 text-gray-500" size={22} />
       </section>
 
       <ul className="flex flex-col gap-5  md:flex-row">
@@ -88,7 +88,7 @@ function Posts() {
             </div>
           ))
         ) : (
-          <p>No post found</p>
+          <p className="text-lg md:text-base">No post found</p>
         )}
       </ul>
       <button
