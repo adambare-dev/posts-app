@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import { FaSearch } from "react-icons/fa";
 function Posts() {
   const [samplePosts, setSamplePosts] = useState([
     {
@@ -55,13 +55,17 @@ function Posts() {
   return (
     <div className="p-4 text-center">
       <h1 className="text-4xl font-bold tracking-tighter mb-6">Posts</h1>
-      <input
-        type="text"
-        placeholder="search post"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        className="border rounded-lg py-1 px-2 my-4 w-full md:w-1/2"
-      />
+
+      <section className="relative border rounded-lg py-4 px-3 my-4 w-full md:w-1/2 flex">
+        <input
+          type="text"
+          placeholder="search post"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          className=" text-xl md:text-xl grow ml-10 outline-none "
+        />
+        <FaSearch className="absolute top-5 " size={22} />
+      </section>
 
       <ul className="flex flex-col gap-5  md:flex-row">
         {filteredPost.length > 0 ? (
@@ -77,7 +81,7 @@ function Posts() {
 
               <Link
                 to={`../postsDetails/${post.id}`}
-                className="font-bold text-blue-400 text-left mt-6"
+                className="font-bold text-blue-400 text-left mt-6 text-2xl md:text-xl"
               >
                 Veiw post details
               </Link>
@@ -90,7 +94,7 @@ function Posts() {
       <button
         onClick={() => navigate(-1)}
         className="py-4 px-8 md:py-3 md:px-6 border border-slate-800 rounded-lg mb-5 bg-slate-800/50 text-white font-bold hover:translate-x-2 duration-200 cursor-pointer mt-9"
-        title="go back to posts page"
+        title="go back to home page"
       >
         &larr; Back To Home
       </button>
