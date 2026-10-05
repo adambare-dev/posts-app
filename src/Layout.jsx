@@ -68,8 +68,9 @@ function Layout() {
           )}
         </nav>
 
-        <main>
+        <main className="relative">
           <Outlet />
+          <div className="w-14 h-14 bg-slate-800 rounded-full fixed right-2 bottom-20"></div>
         </main>
         <Footer />
       </div>

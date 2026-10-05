@@ -3,6 +3,7 @@ import PostDetails from "./PostsDetails";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Layout from "./Layout";
+import Comments from "./comments";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
               <Route path="posts" element={<Posts />} />
               <Route path="postsDetails/:id" element={<PostDetails />} />
             </Route>
+            <Route path="/comments" element={<Comments />} />
           </Routes>
         </BrowserRouter>
       </div>

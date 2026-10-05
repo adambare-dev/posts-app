@@ -56,7 +56,7 @@ function Posts() {
     <div className="p-4 text-center">
       <h1 className="text-4xl font-bold tracking-tighter mb-6">Posts</h1>
 
-      <section className="relative border rounded-xl py-4 px-3 my-4 w-full md:w-1/2 flex">
+      <section className="relative border rounded-xl py-4 px-3 my-4 w-full md:w-1/2 flex  min-w-sm mx-auto">
         <input
           type="text"
           placeholder="search post"
@@ -88,7 +88,9 @@ function Posts() {
             </div>
           ))
         ) : (
-          <p className="text-lg md:text-base">No post found</p>
+          <p className="text-lg md:text-base text-center font-semibold">
+            No post found
+          </p>
         )}
       </ul>
       <button
