@@ -53,7 +53,7 @@ function Posts() {
   );
 
   return (
-    <div className="p-4 text-center">
+    <div className="p-4 w-full">
       <h1 className="text-4xl font-bold tracking-tighter mb-6">Posts</h1>
 
       <section className="relative border rounded-xl py-4 px-3 my-4 w-full md:w-1/2 flex  min-w-sm mx-auto">
@@ -81,7 +81,7 @@ function Posts() {
 
               <Link
                 to={`../postsDetails/${post.id}`}
-                className="font-bold text-blue-400 text-left mt-6 text-2xl md:text-xl"
+                className="font-bold text-blue-400 text-left mt-6 text-xl md:text-lg"
               >
                 Veiw post details
               </Link>
