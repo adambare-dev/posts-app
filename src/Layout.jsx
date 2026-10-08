@@ -38,33 +38,39 @@ function Layout() {
         </nav>
 
         <nav>
+          {/* <p className="fixed inset-0 z-40 bg-slate-950/90 backdrop-blur-xl flex flex-col items-center justify-center md:hidden transition-all duration-300"></p> */}
           {isOpen && (
-            <ul className="md:hidden flex flex-col gap-3 p-2 border-b border-slate-700 min-w-screen text-center">
-              <li className="">
-                <Link
-                  to={"/"}
-                  className="font-semibold text-white text-2xl hover:text-slate-300 transition-all duration-200s"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={"about"}
-                  className="font-semibold text-white text-2xl  hover:text-slate-300 transition-all duration-200s"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to={"posts"}
-                  className="font-semibold text-white text-2xl  hover:text-slate-300 transition-all duration-200s"
-                >
-                  Posts
-                </Link>
-              </li>
-            </ul>
+            <div className=" md:hidden  fixed inset-0 z-40 flex flex-col  items-center justify-center bg-slate-950">
+              <ul className=" flex flex-col gap-3 p-2 ">
+                <li className="">
+                  <Link
+                    to={"/"}
+                    className="font-semibold text-white text-2xl hover:text-slate-500 transition-all duration-200s"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to={"about"}
+                    className="font-semibold text-white text-2xl  hover:text-slate-500 transition-all duration-200s"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    About
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to={"posts"}
+                    className="font-semibold text-white text-2xl  hover:text-slate-500 transition-all duration-200s"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Posts
+                  </Link>
+                </li>
+              </ul>
+            </div>
           )}
         </nav>
 
