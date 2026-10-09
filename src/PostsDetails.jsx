@@ -144,10 +144,11 @@ function PostDetails() {
               </small>
             </section>
             <button
+              onClick={readPostComments}
               className="bg-slate-700 p-2.5 rounded-lg cursor-pointer hover:bg-indigo-400 text-slate-200 transition-all active:scale-95"
               title="read comments"
             >
-              <FaCommentAlt onClick={readPostComments} size={19} />
+              <FaCommentAlt size={19} />
             </button>
           </div>
         </div>
